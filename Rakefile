@@ -7,9 +7,9 @@ begin
     gem.name = "capistrano-helpers"
     gem.summary = %Q{A set of optional extensions to capistrano to make common tasks easier.}
     gem.description = %Q{A set of optional extensions to capistrano to make common tasks easier.}
-    gem.email = "info@westarete.com"
+    gem.email = "scott@westarete.com"
     gem.homepage = "http://github.com/westarete/capistrano-helpers"
-    gem.authors = ["West Arete Computing, Inc."]
+    gem.authors = ["Scott Woods"]
   end
 
 rescue LoadError
