@@ -1,6 +1,6 @@
 = capistrano-helpers
 
-Description goes here.
+A set of optional extensions to capistrano to make common tasks easier. 
 
 == Note on Patches/Pull Requests
  
@@ -15,4 +15,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2009 Scott Woods. See LICENSE for details.
+Copyright (c) 2009 West Arete Computing, Inc. See LICENSE for details.
