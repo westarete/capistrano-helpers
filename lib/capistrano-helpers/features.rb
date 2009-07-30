@@ -1,10 +1,7 @@
+require File.dirname(__FILE__) + '/../capistrano-helpers' if ! defined?(CapistranoHelpers)
 require File.dirname(__FILE__) + '/branch'
 
-unless Capistrano::Configuration.respond_to?(:instance)
-  abort "capistrano/ext/campfire requires Capistrano 2"
-end
-
-Capistrano::Configuration.instance(:must_exist).load do
+CapistranoHelpers.with_configuration do
  
   namespace :deploy do
     desc "Make sure all features pass"

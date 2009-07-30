@@ -1,16 +1,14 @@
-# Campfire API gem for deploy notifications.
+require File.dirname(__FILE__) + '/../capistrano-helpers' if ! defined?(CapistranoHelpers)
+
 begin
+  # Campfire API gem for deploy notifications.
   require 'tinder'
 rescue LoadError
   abort "The campfire helper requires the tinder gem. Install it with: sudo gem install tinder"
 end
 
-unless Capistrano::Configuration.respond_to?(:instance)
-  abort "capistrano/ext/campfire requires Capistrano 2"
-end
-
-Capistrano::Configuration.instance(:must_exist).load do
- 
+CapistranoHelpers.with_configuration do
+  
   namespace :deploy do
     desc 'Make a post to campfire to tell everyone about this deployment.'
     task :post_to_campfire do

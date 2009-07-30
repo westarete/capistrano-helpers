@@ -1,8 +1,6 @@
-unless Capistrano::Configuration.respond_to?(:instance)
-  abort "capistrano/ext/campfire requires Capistrano 2"
-end
+require File.dirname(__FILE__) + '/../capistrano-helpers' if ! defined?(CapistranoHelpers)
 
-Capistrano::Configuration.instance(:must_exist).load do
+CapistranoHelpers.with_configuration do
  
   namespace :deploy do
     task :restart do
