@@ -5,12 +5,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "capistrano-helpers"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "scott@westarete.com"
+    gem.summary = %Q{A set of optional extensions to capistrano to make common tasks easier.}
+    gem.description = %Q{A set of optional extensions to capistrano to make common tasks easier.}
+    gem.email = "info@westarete.com"
     gem.homepage = "http://github.com/westarete/capistrano-helpers"
-    gem.authors = ["Scott Woods"]
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.authors = ["West Arete Computing, Inc."]
   end
 
 rescue LoadError
@@ -36,9 +35,6 @@ rescue LoadError
     abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
   end
 end
-
-
-
 
 task :default => :test
 
