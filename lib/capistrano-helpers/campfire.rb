@@ -1,5 +1,9 @@
 # Campfire API gem for deploy notifications.
-require 'tinder'
+begin
+  require 'tinder'
+rescue LoadError
+  abort "The campfire helper requires the tinder gem. Install it with: sudo gem install tinder"
+end
 
 unless Capistrano::Configuration.respond_to?(:instance)
   abort "capistrano/ext/campfire requires Capistrano 2"
