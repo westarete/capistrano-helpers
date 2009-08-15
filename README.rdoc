@@ -105,18 +105,40 @@ You can override the location of the configuration file by setting the
 
   set :preflight_config, 'somewhere/else.yml'
 
-=== privates
+=== shared
 
 During deployment, this helper replaces each of the given paths with a
-symbolic link that points to the same path under shared/private on the server.
-This is useful for setting up sensitive files (e.g. that contain passwords or
-secret keys) that exist only on the server and not in the source code
-repository.
+symbolic link that points to the same path under the "shared" directory on the
+server. This is useful for setting up files and directories that contain
+data that should persist across deployments (uploads, for example).
+
+After requiring this helper, set the paths to be symlinked using the
+:shared variable:
+
+  set :shared, %w{
+    public/uploads
+    public/downloads/huge_files
+  }
+
+This will create two symbolic links on the production server:
+
+  #{release_path}/public/uploads -> #{shared_path}/public/uploads
+  #{release_path}/public/downloads/huge_files -> #{shared_path}/public/downloads/huge_files
+
+=== privates
+
+This works much like the shared helper above, except the symbolic link will
+point to the same path under "shared/private" on the server. This allows you
+to set special permissions on that directory for keeping particularly 
+sensitive files safe, such as those that contain passwords or encryption keys.
 
 After requiring this helper, set the paths to be symlinked using the
 :privates variable:
 
-  set :privates, ['config/database.yml', 'config/session_secret.txt']
+  set :privates, %w{
+    config/database.yml
+    config/session_secret.txt
+  }
   
 This will create two symbolic links on the production server:
 
