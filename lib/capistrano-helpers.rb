@@ -1,3 +1,5 @@
+require 'capistrano'
+
 unless Capistrano::Configuration.respond_to?(:instance)
   abort "capistrano-helpers requires Capistrano 2"
 end
