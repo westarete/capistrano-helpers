@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{capistrano-helpers}
-  s.version = "0.0.2"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Scott Woods"]
-  s.date = %q{2009-07-30}
+  s.date = %q{2009-08-15}
   s.description = %q{A set of optional extensions to capistrano to make common tasks easier.}
   s.email = %q{scott@westarete.com}
   s.extra_rdoc_files = [
@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
      "lib/capistrano-helpers/php.rb",
      "lib/capistrano-helpers/preflight.rb",
      "lib/capistrano-helpers/privates.rb",
+     "lib/capistrano-helpers/shared.rb",
      "lib/capistrano-helpers/specs.rb",
      "lib/capistrano-helpers/version.rb",
      "test/capistrano-helpers_test.rb",
