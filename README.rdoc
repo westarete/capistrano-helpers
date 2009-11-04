@@ -71,6 +71,14 @@ Before the app is deployed, this helper checks out the branch/tag that is
 being deployed and runs all the cucumber features, ensuring that they all
 pass.
 
+== gems
+
+Run the gems:install rake task using sudo after deployment.
+
+== migrations
+
+Always run migrations during deployment.
+
 === passenger
 
 Overrides the default :restart task so that it's compatible with restarting
