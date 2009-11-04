@@ -26,6 +26,6 @@ CapistranoHelpers.with_configuration do
     end
   end
 
-  after "deploy:update_code", "deploy:post_to_campfire"
+  after "deploy:restart", "deploy:post_to_campfire"
 
 end
