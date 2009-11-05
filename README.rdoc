@@ -75,6 +75,11 @@ pass.
 
 Run the gems:install rake task using sudo after deployment.
 
+== git
+
+Set git as the repository type, and set up remote caching to speed up
+deployments.
+
 == migrations
 
 Always run migrations during deployment.
