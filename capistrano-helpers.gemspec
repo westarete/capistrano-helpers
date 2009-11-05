@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{capistrano-helpers}
-  s.version = "0.2.2"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Scott Woods"]
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
      "lib/capistrano-helpers/campfire.rb",
      "lib/capistrano-helpers/features.rb",
      "lib/capistrano-helpers/gems.rb",
+     "lib/capistrano-helpers/git.rb",
      "lib/capistrano-helpers/migrations.rb",
      "lib/capistrano-helpers/passenger.rb",
      "lib/capistrano-helpers/php.rb",
