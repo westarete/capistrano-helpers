@@ -9,7 +9,10 @@ CapistranoHelpers.with_configuration do
         abort 'You must specify which privates to symlink using the "set :privates" command.'
       end
       privates.each do |path|
-        run "ln -nfs #{shared_path}/private/#{path} #{release_path}/#{path}"
+        if release_path.nil? || release_path.empty? || path.nil? || path.empty?
+          raise "Release path or path are nil!"
+        end
+        run "rm -rf #{release_path}/#{path} && ln -nfs #{shared_path}/private/#{path} #{release_path}/#{path}"
       end
     end
   end
