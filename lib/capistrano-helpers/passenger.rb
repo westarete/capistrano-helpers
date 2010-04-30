@@ -5,7 +5,7 @@ CapistranoHelpers.with_configuration do
   namespace :deploy do
     desc 'Restart passenger'
     task :restart, :roles => :app do
-      run "touch #{release_path}/tmp/restart.txt"
+      run "touch #{current_path}/tmp/restart.txt"
     end
   end
 
