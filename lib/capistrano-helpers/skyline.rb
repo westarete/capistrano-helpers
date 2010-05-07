@@ -1,0 +1,43 @@
+require File.dirname(__FILE__) + '/../capistrano-helpers' if ! defined?(CapistranoHelpers)
+
+CapistranoHelpers.with_configuration do
+  
+  namespace :deploy do
+    namespace :skyline do
+    
+      desc "Create cache directories on the remote server."
+      task :create_cache_dirctories, :roles => :app do
+        cache_paths = [
+          "#{release_path}/tmp/cache/media_files/cache", 
+          "#{release_path}/tmp/cache/rss_sections/cache"
+        ]
+        cache_paths.each do |cache_path|
+          run "if [ ! -d #{cache_path} ] ; then mkdir -p #{cache_path} && sudo chown passenger #{cache_path} ; fi"
+        end
+      end
+      
+      desc "Create upload directory on the remote server."
+      task :create_upload_directory, :roles => :app do
+        shared_upload_path  = "#{shared_path}/tmp/upload"
+        release_upload_path = "#{release_path}/tmp/upload"
+        # Ensure that the shared directory exists
+        run "if [ ! -d #{shared_upload_path} ] ; then mkdir -p #{shared_upload_path} && sudo chown passenger #{shared_upload_path} ; fi"
+        # Delete the upload directory that came with the source
+        run "rm -rf #{release_upload_path}"
+        # Symlink the release directory to the shared directory
+        run "ln -s #{shared_upload_path} #{release_upload_path}"
+      end
+      
+      desc "Run skyline migrations on the remote server."
+      task :migrate, :roles => :app do
+        rails_env = fetch(:rails_env, "production")
+        run "cd #{release_path} && #{sudo} rake skyline:db:migrate RAILS_ENV=#{rails_env}"
+      end
+    
+    end
+  end
+  
+  # Always run migrations.
+  after "deploy:update_code", "deploy:skyline:create_cache_dirctories", "deploy:skyline:create_upload_directory", "deploy:skyline:migrate"
+
+end
