@@ -5,6 +5,12 @@ CapistranoHelpers.with_configuration do
   namespace :deploy do
     namespace :skyline do
     
+      desc "Make certain directories writeable."
+      task :make_writeable, :roles => :app do
+        # Make this directory writeable so sprockets can compress the javascript.
+        run "sudo chown passenger #{release_path}/public/skyline/javascripts"
+      end
+    
       desc "Create cache directories on the remote server."
       task :create_cache_dirctories, :roles => :app do
         cache_paths = [
@@ -38,6 +44,6 @@ CapistranoHelpers.with_configuration do
   end
   
   # Always run migrations.
-  after "deploy:update_code", "deploy:skyline:create_cache_dirctories", "deploy:skyline:create_upload_directory", "deploy:skyline:migrate"
+  after "deploy:update_code", "deploy:skyline:make_writeable", "deploy:skyline:create_cache_dirctories", "deploy:skyline:create_upload_directory", "deploy:skyline:migrate"
 
 end
