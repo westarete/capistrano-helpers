@@ -138,6 +138,12 @@ This will create two symbolic links on the production server:
   #{release_path}/public/uploads -> #{shared_path}/public/uploads
   #{release_path}/public/downloads/huge_files -> #{shared_path}/public/downloads/huge_files
 
+=== skylinecms
+
+This is for the SkylineCMS gem. Skyline requires certain permissions and folders to operate,
+and this helper insures they exist. Remember to run this *after* the rest of your symlinks exist
+(eg. config/database.yml) and *before* anything loads the environment (eg. rake gems:install).
+
 === privates
 
 This works much like the shared helper above, except the symbolic link will

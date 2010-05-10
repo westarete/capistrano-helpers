@@ -3,12 +3,12 @@ require File.dirname(__FILE__) + '/../capistrano-helpers' if ! defined?(Capistra
 CapistranoHelpers.with_configuration do
   
   namespace :deploy do
-    namespace :skyline do
+    namespace :skylinecms do
     
       desc "Make certain directories writeable."
       task :make_writeable, :roles => :app do
         # Make this directory writeable so sprockets can compress the javascript.
-        run "sudo chown passenger #{release_path}/public/skyline/javascripts"
+        run "sudo chown passenger #{release_path}/public/skylinecms/javascripts"
       end
     
       desc "Create cache directories on the remote server."
@@ -34,16 +34,16 @@ CapistranoHelpers.with_configuration do
         run "ln -s #{shared_upload_path} #{release_upload_path}"
       end
       
-      desc "Run skyline migrations on the remote server."
+      desc "Run skylinecms migrations on the remote server."
       task :migrate, :roles => :app do
         rails_env = fetch(:rails_env, "production")
-        run "cd #{release_path} && #{sudo} rake skyline:db:migrate RAILS_ENV=#{rails_env}"
+        run "cd #{release_path} && #{sudo} rake skylinecms:db:migrate RAILS_ENV=#{rails_env}"
       end
     
     end
   end
   
   # Always run migrations.
-  after "deploy:update_code", "deploy:skyline:make_writeable", "deploy:skyline:create_cache_dirctories", "deploy:skyline:create_upload_directory", "deploy:skyline:migrate"
+  after "deploy:update_code", "deploy:skylinecms:make_writeable", "deploy:skylinecms:create_cache_dirctories", "deploy:skylinecms:create_upload_directory", "deploy:skylinecms:migrate"
 
 end

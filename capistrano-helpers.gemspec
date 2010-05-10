@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
      "lib/capistrano-helpers/preflight.rb",
      "lib/capistrano-helpers/privates.rb",
      "lib/capistrano-helpers/shared.rb",
-     "lib/capistrano-helpers/skyline.rb",
+     "lib/capistrano-helpers/skylinecms.rb",
      "lib/capistrano-helpers/specs.rb",
      "lib/capistrano-helpers/version.rb",
      "test/capistrano-helpers_test.rb",
