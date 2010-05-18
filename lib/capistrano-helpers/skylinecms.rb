@@ -15,6 +15,8 @@ CapistranoHelpers.with_configuration do
       task :create_cache_directories, :roles => :app do
         cache_paths = [
           "#{release_path}/tmp/cache/media_files/cache", 
+          "#{release_path}/tmp/cache/posterous_sections/cache", 
+          "#{release_path}/tmp/cache/twitter_sections/cache", 
           "#{release_path}/tmp/cache/rss_sections/cache"
         ]
         cache_paths.each do |cache_path|
