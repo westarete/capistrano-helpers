@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{capistrano-helpers}
-  s.version = "0.4.0"
+  s.version = "0.4.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Scott Woods"]
-  s.date = %q{2010-05-10}
+  s.date = %q{2010-05-18}
   s.description = %q{A set of optional extensions to capistrano to make common tasks easier.}
   s.email = %q{scott@westarete.com}
   s.extra_rdoc_files = [
@@ -40,7 +40,6 @@ Gem::Specification.new do |s|
      "lib/capistrano-helpers/skylinecms.rb",
      "lib/capistrano-helpers/specs.rb",
      "lib/capistrano-helpers/version.rb",
-     "test/capistrano-helpers_test.rb",
      "test/test_helper.rb"
   ]
   s.homepage = %q{http://github.com/westarete/capistrano-helpers}
@@ -49,8 +48,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{A set of optional extensions to capistrano to make common tasks easier.}
   s.test_files = [
-    "test/capistrano-helpers_test.rb",
-     "test/test_helper.rb"
+    "test/test_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
