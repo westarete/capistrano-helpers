@@ -55,10 +55,10 @@ CapistranoHelpers.with_configuration do
   
   # Always run migrations.
   after "deploy:update_code",
-          "deploy:skyline:make_writeable", 
-          "deploy:skyline:create_cache_directories", 
-          "deploy:skyline:create_upload_directory", 
-          "deploy:skyline:migrate", 
-          "deploy:skyline:seed_roles"
+          "deploy:skylinecms:make_writeable", 
+          "deploy:skylinecms:create_cache_directories", 
+          "deploy:skylinecms:create_upload_directory", 
+          "deploy:skylinecms:migrate", 
+          "deploy:skylinecms:seed_roles"
 
 end
