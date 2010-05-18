@@ -1,5 +1,11 @@
 # Capistrano-Helpers Changelog
 
+## 0.4.1
+
+New:
+
+* Added "deploy:skyline:seed_roles" for SkylineCMS helper. This reseeds role information for Skyline projects.
+
 ## 0.4.0
 
 New:
