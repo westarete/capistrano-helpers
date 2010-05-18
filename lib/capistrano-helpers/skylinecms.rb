@@ -39,7 +39,7 @@ CapistranoHelpers.with_configuration do
       desc "Run skylinecms migrations on the remote server."
       task :migrate, :roles => :app do
         rails_env = fetch(:rails_env, "production")
-        run "cd #{release_path} && #{sudo} rake skylinecms:db:migrate RAILS_ENV=#{rails_env}"
+        run "cd #{release_path} && #{sudo} rake skyline:db:migrate RAILS_ENV=#{rails_env}"
       end
       
       desc "Seed roles that are set in the project's fixtures folder."
