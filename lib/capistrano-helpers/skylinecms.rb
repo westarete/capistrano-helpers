@@ -41,16 +41,6 @@ CapistranoHelpers.with_configuration do
         rails_env = fetch(:rails_env, "production")
         run "cd #{release_path} && #{sudo} rake skyline:db:migrate RAILS_ENV=#{rails_env}"
       end
-      
-      desc "Seed roles that are set in the project's fixtures folder."
-      task :seed_roles, :roles => :app do
-        roles_path = "#{release_path}/db/fixtures/roles.rb"
-        rails_env = fetch(:rails_env, "production")
-        # Ensure the roles file is executable.
-        run "sudo chmod +x #{roles_path}"
-        # Run the roles file.
-        run "sudo ./#{roles_path} RAILS_ENV=#{rails_env}"
-      end
     
     end
   end
@@ -60,7 +50,6 @@ CapistranoHelpers.with_configuration do
           "deploy:skylinecms:make_writeable", 
           "deploy:skylinecms:create_cache_directories", 
           "deploy:skylinecms:create_upload_directory", 
-          "deploy:skylinecms:migrate", 
-          "deploy:skylinecms:seed_roles"
+          "deploy:skylinecms:migrate"
 
 end
