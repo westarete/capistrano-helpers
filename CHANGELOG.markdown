@@ -1,5 +1,21 @@
 # Capistrano-Helpers Changelog
 
+## 0.4.3
+
+Removed:
+
+* Functionality to seed roles. This sort of task should be done as a typical migration, not in a Capistrano recipe.
+
+## 0.4.2
+
+New: 
+
+* Adding cache folders for a Skyline installation.
+
+Fixed:
+
+* Misspellings with regards to the SkylineCMS gem fixed.
+
 ## 0.4.1
 
 New:
