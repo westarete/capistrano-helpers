@@ -1,5 +1,11 @@
 # Capistrano-Helpers Changelog
 
+## 0.4.4
+
+Fixed:
+
+* Using the newest version of the Tinder gem. At some point the Campfire API changed, so we're changing with it.
+
 ## 0.4.3
 
 Removed:
