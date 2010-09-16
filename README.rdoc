@@ -36,6 +36,10 @@ a config/campfire.yml file).
 
 Prompts the user for the particular tag/branch/commit to deploy.
 
+=== bundler
+
+Automatically runs "bundle install --deployment" to install gems from your Gemfile at the appropriate time.
+
 === campfire
 
 After the application has been deployed, this helper will post a message to 

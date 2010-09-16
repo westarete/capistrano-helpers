@@ -1,5 +1,11 @@
 # Capistrano-Helpers Changelog
 
+## 0.5.0
+
+New:
+
+* Added a Bundler helper. It automatically runs "bundle install --deployment" at the appropriate time.
+
 ## 0.4.4
 
 Fixed:
