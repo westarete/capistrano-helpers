@@ -1,5 +1,11 @@
 # Capistrano-Helpers Changelog
 
+## 0.5.4
+
+Changed:
+
+* Tolerate a missing campfire.yml.
+
 ## 0.5.3
 
 Changed:
