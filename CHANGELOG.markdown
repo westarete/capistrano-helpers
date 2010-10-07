@@ -1,5 +1,11 @@
 # Capistrano-Helpers Changelog
 
+## 0.5.3
+
+Changed:
+
+* Don't install :development or :test groups when deploying with bundler.
+
 ## 0.5.0
 
 New:
