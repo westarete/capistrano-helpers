@@ -18,11 +18,15 @@ CapistranoHelpers.with_configuration do
       end
       username = `whoami`.chomp
       config_file = fetch(:campfire_config, 'config/campfire.yml')
-      config = YAML::load_file(config_file)
-      campfire = Tinder::Campfire.new(config['account'], :username => config['email'], :password => config['password'])
-      room = campfire.find_room_by_name(config['room'])
-      room.speak("#{username} just deployed #{application} #{branch} to #{stage}")
-      room.leave
+      begin
+        config = YAML::load_file(config_file)
+        campfire = Tinder::Campfire.new(config['account'], :username => config['email'], :password => config['password'])
+        room = campfire.find_room_by_name(config['room'])
+        room.speak("#{username} just deployed #{application} #{branch} to #{stage}")
+        room.leave
+      rescue Errno::ENOENT
+        puts "Could not open config/campfire.yml. Skipping campfire notification."
+      end
     end
   end
 
