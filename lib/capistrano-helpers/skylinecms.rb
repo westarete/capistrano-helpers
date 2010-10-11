@@ -9,6 +9,8 @@ CapistranoHelpers.with_configuration do
       task :make_writeable, :roles => :app do
         # Make this directory writeable so sprockets can compress the javascript.
         run "sudo chown passenger #{release_path}/public/skyline/javascripts"
+        # Make this directory writeable so compass can regenerate the css.
+        run "sudo chown passenger #{release_path}/public/stylesheets/compiled"
       end
     
       desc "Create cache directories on the remote server."
