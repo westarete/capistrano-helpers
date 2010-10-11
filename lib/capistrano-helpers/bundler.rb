@@ -5,7 +5,7 @@ CapistranoHelpers.with_configuration do
   namespace :deploy do
     desc "Install gems on the remote server using Bundler."
     task :bundler do
-      run "cd #{release_path} && bundle install --deployment"
+      run "cd #{release_path} && bundle install --deployment --path #{shared_path}/vendor/bundler --without development test"
     end
   end
 

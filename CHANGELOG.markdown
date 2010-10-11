@@ -1,5 +1,17 @@
 # Capistrano-Helpers Changelog
 
+## 0.5.4
+
+Changed:
+
+* Tolerate a missing campfire.yml.
+
+## 0.5.3
+
+Changed:
+
+* Don't install :development or :test groups when deploying with bundler.
+
 ## 0.5.0
 
 New:
