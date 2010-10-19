@@ -1,5 +1,17 @@
 # Capistrano-Helpers Changelog
 
+## 0.5.6
+
+Fixed:
+
+* Really ensure that stylesheets and javascripts are writeable.
+
+## 0.5.5
+
+Fixed:
+
+* Ensure that skyline can write to stylesheets to compile them.
+
 ## 0.5.4
 
 Changed:
