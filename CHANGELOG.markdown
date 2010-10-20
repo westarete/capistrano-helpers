@@ -1,5 +1,11 @@
 # Capistrano-Helpers Changelog
 
+## 0.5.7
+
+Changed:
+
+* Bundler will now only use local gems in vendor/bundler, instead of looking to rubygems.org.
+
 ## 0.5.6
 
 Fixed:
