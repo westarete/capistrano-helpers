@@ -46,15 +46,14 @@ After the application has been deployed, this helper will post a message to
 the given campfire room stating the username, the application, the branch/tag,
 and the environment. E.g.:
 
-  woods just deployed myapp v0.5.4 to staging
+  Scott Woods just deployed myapp v0.5.4 to staging
 
-This helper expects to find a configuration file config/campfire.yml with the
-following format:
+This helper expects to find a configuration file config/campfire.yml or ~/.campfire.yml 
+with the following format:
 
   # Configuration for posting to campfire.
-  account: mycompany
-  email: smithers@mycompany.com
-  password: 's3kret!'
+  subdomain: mycompany
+  token: abcd1234567890
   room: Chatter
 
 You can override the location of the configuration file by setting the
@@ -62,13 +61,6 @@ You can override the location of the configuration file by setting the
 
   set :campfire_config, 'somewhere/else.yml'
   
-This helper requires that the "tinder" gem is installed on the machine that
-you run the "cap" command from. It doesn't need to be installed on any of the
-servers. You can install the tinder gem using the following command on linux 
-or mac:
-
-  sudo gem install tinder
-
 === features
 
 Before the app is deployed, this helper checks out the branch/tag that is

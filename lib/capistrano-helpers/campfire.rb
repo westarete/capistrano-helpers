@@ -1,35 +1,31 @@
 require File.dirname(__FILE__) + '/../capistrano-helpers' if ! defined?(CapistranoHelpers)
 
-begin
-  # Campfire API gem for deploy notifications.
-  gem 'tinder', '>= 1.4.0'
-  require 'tinder'
-rescue LoadError
-  abort "The campfire helper requires the tinder gem. Install it with: sudo gem install tinder"
-end
+require 'tinder'
+require 'git'
 
 CapistranoHelpers.with_configuration do
   
   namespace :deploy do
     desc 'Make a post to campfire to tell everyone about this deployment.'
     task :post_to_campfire do
-      if !exists?(:application)
-        puts "You should set :application to the name of this app."
-      end
-      username = `whoami`.chomp
-      config_file = fetch(:campfire_config, 'config/campfire.yml')
-      begin
+      config_file = [fetch(:campfire_config, 'config/campfire.yml'), "#{ENV['HOME']}/.campfire.yml"].detect { |f| File.readable?(f) }
+      if config_file.nil?
+         puts "Could not find a campfire configuration. Skipping campfire notification."
+      else
+        if ! exists?(:application)
+          puts "You should set :application to the name of this app."
+        end
+        git_config = Git.open('.').config rescue {}
+        someone = ENV['GIT_AUTHOR_NAME'] || git_config['user.name'] || `whoami`.strip
         config = YAML::load_file(config_file)
-        campfire = Tinder::Campfire.new(config['account'], :username => config['email'], :password => config['password'])
+        campfire = Tinder::Campfire.new(config['subdomain'], :token => config['token'])
         room = campfire.find_room_by_name(config['room'])
-        room.speak("#{username} just deployed #{application} #{branch} to #{stage}")
+        stage ||= 'production'
+        room.speak("#{someone} just deployed #{application} #{branch} to #{stage}")
         room.leave
-      rescue Errno::ENOENT
-        puts "Could not open config/campfire.yml. Skipping campfire notification."
       end
     end
   end
-
   after "deploy:restart", "deploy:post_to_campfire"
 
 end

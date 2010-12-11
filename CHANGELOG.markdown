@@ -2,6 +2,7 @@
 
 Fixed:
 
+* Campfire notifications were broken. Updated for new API, use git names for announcements.
 * Force a chown of vendor/bundler, since building gems sometimes doesn't preserve group permissions.
   Hopefully there will be a fix for this someday so we can avoid this workaround.
 

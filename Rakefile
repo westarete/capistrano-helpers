@@ -10,7 +10,9 @@ begin
     gem.email = "scott@westarete.com"
     gem.homepage = "http://github.com/westarete/capistrano-helpers"
     gem.authors = ["Scott Woods"]
-    gem.add_dependency('capistrano', '>= 2.0.0')
+    gem.add_dependency('capistrano', '2.5.19')
+    gem.add_dependency('git', '1.2.5')
+    gem.add_dependency('tinder', '1.4.3')
   end
 
 rescue LoadError

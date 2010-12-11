@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Scott Woods"]
-  s.date = %q{2010-10-20}
+  s.date = %q{2010-12-11}
   s.description = %q{A set of optional extensions to capistrano to make common tasks easier.}
   s.email = %q{scott@westarete.com}
   s.extra_rdoc_files = [
@@ -57,12 +57,18 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<capistrano>, [">= 2.0.0"])
+      s.add_runtime_dependency(%q<capistrano>, ["= 2.5.19"])
+      s.add_runtime_dependency(%q<git>, ["= 1.2.5"])
+      s.add_runtime_dependency(%q<tinder>, ["= 1.4.3"])
     else
-      s.add_dependency(%q<capistrano>, [">= 2.0.0"])
+      s.add_dependency(%q<capistrano>, ["= 2.5.19"])
+      s.add_dependency(%q<git>, ["= 1.2.5"])
+      s.add_dependency(%q<tinder>, ["= 1.4.3"])
     end
   else
-    s.add_dependency(%q<capistrano>, [">= 2.0.0"])
+    s.add_dependency(%q<capistrano>, ["= 2.5.19"])
+    s.add_dependency(%q<git>, ["= 1.2.5"])
+    s.add_dependency(%q<tinder>, ["= 1.4.3"])
   end
 end
 
