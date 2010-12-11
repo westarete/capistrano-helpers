@@ -17,11 +17,11 @@ CapistranoHelpers.with_configuration do
         end
         git_config = Git.open('.').config rescue {}
         someone = ENV['GIT_AUTHOR_NAME'] || git_config['user.name'] || `whoami`.strip
+        target = fetch(:stage, 'production')
         config = YAML::load_file(config_file)
         campfire = Tinder::Campfire.new(config['subdomain'], :token => config['token'])
         room = campfire.find_room_by_name(config['room'])
-        stage ||= 'production'
-        room.speak("#{someone} just deployed #{application} #{branch} to #{stage}")
+        room.speak("#{someone} just deployed #{application} #{branch} to #{target}")
         room.leave
       end
     end
