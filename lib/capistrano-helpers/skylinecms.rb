@@ -31,7 +31,7 @@ CapistranoHelpers.with_configuration do
         shared_upload_path  = "#{shared_path}/tmp/upload"
         release_upload_path = "#{release_path}/tmp/upload"
         # Ensure that the shared directory exists
-        run "if [ ! -d #{shared_upload_path} ] ; then mkdir -p #{shared_upload_path} && sudo chown passenger #{shared_upload_path} ; fi"
+        run "if [ ! -d #{shared_upload_path} ] ; then mkdir -p #{shared_upload_path} ; fi ; sudo chown passenger #{shared_upload_path}"
         # Delete the upload directory that came with the source
         run "rm -rf #{release_upload_path}"
         # Symlink the release directory to the shared directory
