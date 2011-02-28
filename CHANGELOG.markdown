@@ -1,5 +1,29 @@
 # Capistrano-Helpers Changelog
 
+Fixed:
+
+* Campfire notifications were broken. Updated for new API, use git names for announcements.
+* Force a chown of vendor/bundler, since building gems sometimes doesn't preserve group permissions.
+  Hopefully there will be a fix for this someday so we can avoid this workaround.
+
+## 0.5.7
+
+Changed:
+
+* Bundler will now only use local gems in vendor/bundler, instead of looking to rubygems.org.
+
+## 0.5.6
+
+Fixed:
+
+* Really ensure that stylesheets and javascripts are writeable.
+
+## 0.5.5
+
+Fixed:
+
+* Ensure that skyline can write to stylesheets to compile them.
+
 ## 0.5.4
 
 Changed:
