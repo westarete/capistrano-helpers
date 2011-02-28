@@ -22,7 +22,7 @@ CapistranoHelpers.with_configuration do
           "#{release_path}/tmp/cache/rss_sections/cache"
         ]
         cache_paths.each do |cache_path|
-          run "if [ ! -d #{cache_path} ] ; then mkdir -p #{cache_path} && sudo chown passenger #{cache_path} ; fi"
+          run "if [ ! -d #{cache_path} ] ; then mkdir -p #{cache_path}; fi ; && sudo chown passenger #{cache_path}"
         end
       end
       
