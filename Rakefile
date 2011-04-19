@@ -12,7 +12,7 @@ begin
     gem.authors = ["Scott Woods"]
     gem.add_dependency('capistrano', '~> 2.5.19')
     gem.add_dependency('git', '1.2.5')
-    gem.add_dependency('tinder', '1.4.3')
+    gem.add_dependency('tinder', '1.4.1')
   end
 
 rescue LoadError
