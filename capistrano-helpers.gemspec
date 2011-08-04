@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.version = "0.6.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Scott Woods"]
-  s.date = %q{2011-07-26}
+  s.authors = [%q{Scott Woods}, %q{Clinton Judy}]
+  s.date = %q{2011-08-04}
   s.description = %q{A set of optional extensions to capistrano to make common tasks easier.}
-  s.email = %q{scott@westarete.com}
+  s.email = %q{team@westarete.com}
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
@@ -43,8 +43,8 @@ Gem::Specification.new do |s|
     "test/test_helper.rb"
   ]
   s.homepage = %q{http://github.com/westarete/capistrano-helpers}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.6}
   s.summary = %q{A set of optional extensions to capistrano to make common tasks easier.}
 
   if s.respond_to? :specification_version then
