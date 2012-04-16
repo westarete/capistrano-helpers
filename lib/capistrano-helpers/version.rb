@@ -10,6 +10,6 @@ CapistranoHelpers.with_configuration do
     end
   end
 
-  after "deploy:update_code", "deploy:write_version_file"
+  before "deploy:finalize_update", "deploy:write_version_file"
 
 end

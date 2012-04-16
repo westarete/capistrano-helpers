@@ -17,6 +17,6 @@ CapistranoHelpers.with_configuration do
     end
   end
 
-  after "deploy:update_code", "deploy:symlink_privates"
+  before "deploy:finalize_update", "deploy:symlink_privates"
 
 end
