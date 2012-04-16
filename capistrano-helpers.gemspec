@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{capistrano-helpers}
-  s.version = "0.6.6"
+  s.version = "0.7.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Scott Woods}, %q{Clinton Judy}]
-  s.date = %q{2011-08-04}
+  s.authors = ["Scott Woods", "Clinton Judy"]
+  s.date = %q{2012-04-16}
   s.description = %q{A set of optional extensions to capistrano to make common tasks easier.}
   s.email = %q{team@westarete.com}
   s.extra_rdoc_files = [
@@ -43,14 +43,15 @@ Gem::Specification.new do |s|
     "test/test_helper.rb"
   ]
   s.homepage = %q{http://github.com/westarete/capistrano-helpers}
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
+  s.require_paths = ["lib"]
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{A set of optional extensions to capistrano to make common tasks easier.}
 
   if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<capistrano>, [">= 0"])
       s.add_runtime_dependency(%q<git>, [">= 0"])
       s.add_runtime_dependency(%q<tinder>, [">= 0"])
