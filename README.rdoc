@@ -1,6 +1,6 @@
 = capistrano-helpers
 
-A set of optional extensions to capistrano to make common tasks easier and 
+A set of optional extensions to capistrano to make common tasks easier and
 reduce redundancy across your deployments.
 
 == Usage
@@ -42,13 +42,13 @@ Automatically runs "bundle install --deployment" to install gems from your Gemfi
 
 === campfire
 
-After the application has been deployed, this helper will post a message to 
+After the application has been deployed, this helper will post a message to
 the given campfire room stating the username, the application, the branch/tag,
 and the environment. E.g.:
 
   Scott Woods just deployed myapp v0.5.4 to staging
 
-This helper expects to find a configuration file config/campfire.yml or ~/.campfire.yml 
+This helper expects to find a configuration file config/campfire.yml or ~/.campfire.yml
 with the following format:
 
   # Configuration for posting to campfire.
@@ -60,23 +60,23 @@ You can override the location of the configuration file by setting the
 :campfire_config variable:
 
   set :campfire_config, 'somewhere/else.yml'
-  
+
 === features
 
 Before the app is deployed, this helper checks out the branch/tag that is
 being deployed and runs all the cucumber features, ensuring that they all
 pass.
 
-== gems
+=== gems
 
 Run the gems:install rake task using sudo after deployment.
 
-== git
+=== git
 
 Set git as the repository type, and set up remote caching to speed up
 deployments.
 
-== migrations
+=== migrations
 
 Always run migrations during deployment.
 
@@ -144,7 +144,7 @@ and this helper insures they exist. Remember to run this *after* the rest of you
 
 This works much like the shared helper above, except the symbolic link will
 point to the same path under "shared/private" on the server. This allows you
-to set special permissions on that directory for keeping particularly 
+to set special permissions on that directory for keeping particularly
 sensitive files safe, such as those that contain passwords or encryption keys.
 
 After requiring this helper, set the paths to be symlinked using the
@@ -154,7 +154,7 @@ After requiring this helper, set the paths to be symlinked using the
     config/database.yml
     config/session_secret.txt
   }
-  
+
 This will create two symbolic links on the production server:
 
   #{release_path}/config/database.yml -> #{shared_path}/private/config/database.yml
