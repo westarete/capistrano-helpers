@@ -28,6 +28,8 @@ CapistranoHelpers.with_configuration do
       config_file = [fetch(:campfire_config, 'config/campfire.yml'), "#{ENV['HOME']}/.campfire.yml"].detect { |f| File.readable?(f) }
       if config_file.nil?
         puts "Could not find a campfire configuration. Skipping campfire notification."
+      elsif fetch(:campfire_notifications, true) == false
+        # Campfire notifications are disabled, nothing to do
       else
         if ! exists?(:application)
           puts "You should set :application to the name of this app."
