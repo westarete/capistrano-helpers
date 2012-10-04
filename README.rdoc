@@ -42,11 +42,13 @@ Automatically runs "bundle install --deployment" to install gems from your Gemfi
 
 === campfire
 
-After the application has been deployed, this helper will post a message to
-the given campfire room stating the username, the application, the branch/tag,
-and the environment. E.g.:
+Before the application has been deployed and after the deploy has been
+completed, this helper will post a message to the given Campfire room stating
+the username, the application, the branch/tag and the environment. E.g.:
 
-  Scott Woods just deployed myapp v0.5.4 to staging
+  Scott Woods started deploying myapp v0.5.4 to staging
+  ...
+  Scott Woods finished deploying myapp v0.5.4 to staging
 
 This helper expects to find a configuration file config/campfire.yml or ~/.campfire.yml
 with the following format:
@@ -60,6 +62,12 @@ You can override the location of the configuration file by setting the
 :campfire_config variable:
 
   set :campfire_config, 'somewhere/else.yml'
+
+You can disable the notification for a specific deployment stage by setting
+the :campfire_notifications variable to false.
+E.g. in config/deploy/staging:
+
+  set :campfire_notifications, false
 
 === features
 
