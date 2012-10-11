@@ -177,6 +177,11 @@ This will create two symbolic links on the production server:
 Before the app is deployed, this helper checks out the branch/tag that is
 being deployed and runs all the rspec specs, ensuring that they all pass.
 
+=== unicorn
+
+Overrides the default :restart task so that it's compatible with restarting
+unicorn.
+
 === version
 
 Creates a VERSION file in the deployed copy that contains the name of the
