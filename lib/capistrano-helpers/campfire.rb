@@ -26,6 +26,9 @@ CapistranoHelpers.with_configuration do
         return
       end
 
+      # If the :branch reference is a full SHA1, display it in its abbreviated form
+      campfire_branch = fetch(:branch).sub(/\b([a-f0-9]{7})[a-f0-9]{33}\b/, '\1')
+
       config_file = [fetch(:campfire_config, 'config/campfire.yml'), "#{ENV['HOME']}/.campfire.yml"].detect { |f| File.readable?(f) }
       if config_file.nil?
         puts "Could not find a campfire configuration. Skipping campfire notification."
@@ -41,7 +44,7 @@ CapistranoHelpers.with_configuration do
         config = YAML::load_file(config_file)
         campfire = Tinder::Campfire.new(config['subdomain'], :token => config['token'])
         room = campfire.find_room_by_name(config['room'])
-        room.speak("#{someone} #{action} #{application} #{branch} to #{target}")
+        room.speak("#{someone} #{action} #{application} #{campfire_branch} to #{target}")
       end
     end
   end
