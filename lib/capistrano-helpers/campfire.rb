@@ -6,13 +6,14 @@ require 'git'
 CapistranoHelpers.with_configuration do
 
   namespace :deploy do
-    desc 'Make a post to campfire to tell everyone about this deployment.'
-    task :post_to_campfire_before do
-      post_to_campfire(:before)
-    end
-
+    desc "Post to campfire that this deployment is complete"
     task :post_to_campfire_after do
       post_to_campfire(:after)
+    end
+
+    desc "Post to campfire that this deployment has begun"
+    task :post_to_campfire_before do
+      post_to_campfire(:before)
     end
 
     def post_to_campfire(hook=:before)
@@ -47,7 +48,7 @@ CapistranoHelpers.with_configuration do
       end
     end
   end
+
   after "deploy:restart", "deploy:post_to_campfire_after"
-  before "deploy", "deploy:post_to_campfire_before"
 
 end
