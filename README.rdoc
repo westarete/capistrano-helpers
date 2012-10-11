@@ -42,13 +42,17 @@ Automatically runs "bundle install --deployment" to install gems from your Gemfi
 
 === campfire
 
-Before the application has been deployed and after the deploy has been
-completed, this helper will post a message to the given Campfire room stating
-the username, the application, the branch/tag and the environment. E.g.:
+Once the deploy is complete, this helper will post a message to the given
+Campfire room stating the username, the application, the branch/tag and the
+environment. E.g.:
 
-  Scott Woods started deploying myapp v0.5.4 to staging
-  ...
   Scott Woods finished deploying myapp v0.5.4 to staging
+
+By default, it will only post when the deploy is complete. If you'd also
+like it to post when the deploy begins, you can add the following line
+to your deploy script:
+
+  before "deploy", "deploy:post_to_campfire_before"
 
 This helper expects to find a configuration file config/campfire.yml or ~/.campfire.yml
 with the following format:
