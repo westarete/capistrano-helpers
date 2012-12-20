@@ -6,7 +6,7 @@ CapistranoHelpers.with_configuration do
   namespace :deploy do
     desc "Make sure all specs pass"
     task :check_specs do
-      if scm != 'git'
+      if scm.to_sym != :git
         abort "Sorry, you can only check specs if you're using git as your scm."
       end
       `git branch` =~ /^\* ([^\s]+)/ or abort "Couldn't understand the output of `git branch`."
