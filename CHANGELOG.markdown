@@ -6,6 +6,10 @@ Fixed:
 * Force a chown of vendor/bundler, since building gems sometimes doesn't preserve group permissions.
   Hopefully there will be a fix for this someday so we can avoid this workaround.
 
+Added:
+
+* Growl notification helper
+
 ## 0.5.7
 
 Changed:

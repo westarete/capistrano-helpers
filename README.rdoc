@@ -88,6 +88,15 @@ Run the gems:install rake task using sudo after deployment.
 Set git as the repository type, and set up remote caching to speed up
 deployments.
 
+=== growl
+
+Once the deploy is complete, this helper will post a message to Growl stating
+the application, the branch/tag and the environment. E.g.:
+
+  capistrano
+
+  finished deploying myapp v0.5.4 to staging
+
 === migrations
 
 Always run migrations during deployment.
