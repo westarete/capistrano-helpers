@@ -1,6 +1,11 @@
 require File.dirname(__FILE__) + '/../capistrano-helpers' if ! defined?(CapistranoHelpers)
 
-require 'tinder'
+begin
+  require 'tinder'
+rescue LoadError
+  raise RuntimeError, "tinder gem required for Campfire deploy notifications.  Run `sudo gem install tinder`, or add `gem 'tinder'` to your Gemfile."
+end
+
 require 'git'
 
 CapistranoHelpers.with_configuration do

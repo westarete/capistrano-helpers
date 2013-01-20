@@ -12,7 +12,6 @@ begin
     gem.authors = ["Scott Woods", "Clinton Judy"]
     gem.add_dependency('capistrano')
     gem.add_dependency('git')
-    gem.add_dependency('tinder')
   end
 
 rescue LoadError
@@ -41,7 +40,7 @@ end
 
 task :default => :test
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   if File.exist?('VERSION.yml')
     config = YAML.load(File.read('VERSION.yml'))
