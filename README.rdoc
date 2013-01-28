@@ -54,8 +54,10 @@ to your deploy script:
 
   before "deploy", "deploy:post_to_campfire_before"
 
-This helper expects to find a configuration file config/campfire.yml or ~/.campfire.yml
-with the following format:
+You will need to install the tinder gem to enable campfire notifications.  Run
+<tt>sudo gem install tinder</tt>, or add <tt>gem 'tinder'</tt> to your Gemfile.
+This helper expects to find a configuration file config/campfire.yml or
+~/.campfire.yml with the following format:
 
   # Configuration for posting to campfire.
   subdomain: mycompany
