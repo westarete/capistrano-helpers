@@ -9,6 +9,7 @@ Fixed:
 Added:
 
 * Growl notification helper
+* Ding notifier
 
 ## 0.5.7
 

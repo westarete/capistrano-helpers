@@ -73,6 +73,10 @@ E.g. in config/deploy/staging:
 
   set :campfire_notifications, false
 
+=== ding
+
+Once the deploy is complete, this helper will play a 'ding' sound (Mac only).
+
 === features
 
 Before the app is deployed, this helper checks out the branch/tag that is
