@@ -9,8 +9,8 @@ begin
     gem.description = %Q{A set of optional extensions to capistrano to make common tasks easier.}
     gem.email = "team@westarete.com"
     gem.homepage = "http://github.com/westarete/capistrano-helpers"
-    gem.authors = ["Scott Woods", "Clinton Judy"]
-    gem.add_dependency('capistrano')
+    gem.authors = ["Scott Woods"]
+    gem.add_dependency('capistrano', '~> 2.0')
     gem.add_dependency('git')
   end
 
