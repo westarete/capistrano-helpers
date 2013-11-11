@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".document",
-    "CHANGELOG.markdown",
     "LICENSE",
     "README.rdoc",
     "Rakefile",
