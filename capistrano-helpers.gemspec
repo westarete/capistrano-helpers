@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.date = "2013-11-06"
   s.description = "A set of optional extensions to capistrano to make common tasks easier."
   s.email = "team@westarete.com"
+  s.license = 'MIT'
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
