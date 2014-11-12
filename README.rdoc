@@ -211,4 +211,4 @@ app itself.
 
 == Copyright
 
-Copyright (c) 2009 West Arete Computing, Inc.
+Copyright (c) 2014 West Arete Computing, Inc.
