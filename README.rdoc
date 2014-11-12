@@ -103,6 +103,12 @@ the application, the branch/tag and the environment. E.g.:
 
   finished deploying myapp v0.5.4 to staging
 
+=== jekyll
+
+Deploy a static website with [jekyll](http://jekyllrb.com/). Rebuild the site
+during deployment, and override any server restarts (since it's just a static
+site).
+
 === migrations
 
 Always run migrations during deployment.
