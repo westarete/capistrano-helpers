@@ -12,7 +12,8 @@ begin
     gem.authors = ["Scott Woods"]
     gem.license = "MIT"
     gem.add_dependency('capistrano', '~> 2.0')
-    gem.add_dependency('git')
+    gem.add_dependency('git', '~> 1.0')
+    gem.add_dependency('versionomy', '~> 0')
   end
 
 rescue LoadError
