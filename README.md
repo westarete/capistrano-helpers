@@ -150,6 +150,12 @@ You can override the location of the configuration file by setting the
 
     set :preflight_config, 'somewhere/else.yml'
 
+### robots
+
+Unless deploying to production, write a `public/robots.txt` file that will
+disallow all search engine bots and crawlers. This prevents your staging and
+beta sites from being indexed by Google.
+
 ### shared
 
 During deployment, this helper replaces each of the given paths with a
