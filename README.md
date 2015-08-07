@@ -227,7 +227,7 @@ You can override the location of the configuration file by setting the
     set :slack_config, 'somewhere/else.yml'
 
 You can disable the notification for a specific deployment stage by setting
-the :slack_notifications variable to false, e.g. in config/deploy/staging:
+the :slack_notifications variable to false, e.g. in `config/deploy/staging.rb`:
 
     set :slack_notifications, false
 
