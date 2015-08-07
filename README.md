@@ -202,6 +202,35 @@ This will create two symbolic links on the production server:
     #{release_path}/config/database.yml -> #{shared_path}/private/config/database.yml
     #{release_path}/config/session_secret.txt -> #{shared_path}/private/config/session_secret.txt
   
+### slack
+
+Once the deploy is complete, this helper will post a message to the given
+Slack room stating the username, the application, the branch/tag and the
+environment. E.g.:
+
+    Scott Woods just deployed myapp v0.5.4 to staging
+
+You will need to add the <tt>slack-notifier</tt> gem to your Gemfile.
+
+This helper also expects to find a configuration file <tt>config/slack.yml</tt> 
+with the following format:
+
+    # This file is used for developer chat room notifications.
+    webhook_url: "https://hooks.slack.com/services/YOUR_SLACK_WEBHOOK_HERE"
+    channel: "#flip-learning"
+    username: "capistrano"
+    icon_emoji: ":bird:"
+
+You can override the location of the configuration file by setting the
+:slack_config variable:
+
+    set :slack_config, 'somewhere/else.yml'
+
+You can disable the notification for a specific deployment stage by setting
+the :slack_notifications variable to false, e.g. in config/deploy/staging:
+
+    set :slack_notifications, false
+
 ### specs
 
 Before the app is deployed, this helper checks out the branch/tag that is
